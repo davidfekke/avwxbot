@@ -1,5 +1,5 @@
 
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 import Fastify from 'fastify';
 import POV from "point-of-view"
 import { Liquid } from "liquidjs"
@@ -7,7 +7,7 @@ import path from "path"
 import axios from 'axios';
 import Particle from 'particle-api-js';
 
-dotenv.config();
+//dotenv.config();
 
 const access_token = process.env.particle_access_token;
 const device = process.env.button_device;
@@ -78,7 +78,7 @@ fastify.get('/rainbow', (request, reply) => {
 // Run the server!
 fastify.listen(3000, '0.0.0.0', function (err, address) {
     if (err) {
-        fastify.log.error(err)
+        //fastify.log.error(err)
         process.exit(1)
     }
 // Server is now listening on ${address}
