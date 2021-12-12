@@ -5,9 +5,17 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "fastify": "^3.24.1",
+    "liquidjs": "^9.29.0",
+    "particle-api-js": "^9.1.2",
+    "point-of-view": "^4.16.0"
+  }
 }

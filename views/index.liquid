@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Weather Bot Checker</title>
+</head>
+<body>
+    <h1>Aviation Weather Bot Checker</h1>
+    <p style="color:{{color}};">Checking the current weather at Craig airport</p>
+    {{currentweather}}
+    <button onclick="setToGreen();">Set To Green</button>
+    <button onclick="turnOnRainbow();">Rainbow</button>
+    <script>
+        async function setToGreen() {
+            document.getElementsByTagName('p')[0].style.color = 'green';
+            const result =  await fetch('/setcolor/0,255,0');
+            console.log(result.status);
+        }
+
+        async function turnOnRainbow() {
+            const result =  await fetch('/rainbow');
+            console.log(result.status);
+        }
+    </script>
+</body>
+</html>
