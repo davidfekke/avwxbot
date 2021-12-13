@@ -75,6 +75,11 @@ fastify.get('/rainbow', (request, reply) => {
     reply.send({ color: color });
 });
 
+fastify.get('/reloadwx', (request, reply) => {
+    sendCurrentWX();
+    reply.send({ color: color });
+});
+
 // Run the server!
 fastify.listen(3000, '0.0.0.0', function (err, address) {
     if (err) {
@@ -143,4 +148,6 @@ async function sendCurrentWX() {
         const flight_category = metar.flight_category;
         colorForWeather(flight_category);
     }
+    getWeatherColor(flight_category);
+    return currentColor; 
 }

@@ -12,6 +12,7 @@
     {{currentweather}}
     <button onclick="setToGreen();">Set To Green</button>
     <button onclick="turnOnRainbow();">Rainbow</button>
+    <button onclick="reset();">Reset</button>
     <script>
         async function setToGreen() {
             document.getElementsByTagName('p')[0].style.color = 'green';
@@ -23,6 +24,12 @@
             const result =  await fetch('/rainbow');
             console.log(result.status);
         }
+
+        async function reset() {
+            const result =  await fetch('/reloadwx');
+            console.log(result.status);
+        }
+
     </script>
 </body>
 </html>
