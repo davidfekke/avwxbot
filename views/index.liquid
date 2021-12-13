@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
     <title>Aviation Weather Bot Checker</title>
 </head>
 <body>
-    <h1>Aviation Weather Bot Checker</h1>
+    <div class="lg:content-auto">
+    <h1 class="text-3xl font-bold underline">Aviation Weather Bot Checker</h1>
     <p style="color:{{color}};">Checking the current weather at Craig airport</p>
     {{currentweather}}
-    <button onclick="setToGreen();">Set To Green</button>
-    <button onclick="turnOnRainbow();">Rainbow</button>
-    <button onclick="reset();">Reset</button>
+    <button class="rounded-full bg-indigo-500" onclick="setToGreen();">Set To Green</button>
+    <button class="rounded-full bg-indigo-500" onclick="turnOnRainbow();">Rainbow</button>
+    <button class="rounded-full bg-indigo-500" onclick="reset();">Reset</button>
+  </div>
+    
     <script>
         async function setToGreen() {
             document.getElementsByTagName('p')[0].style.color = 'green';
