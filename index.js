@@ -141,7 +141,7 @@ function particleServiceTimer() {
 
 async function sendCurrentWX() {
     console.log('Sending to Particle service.');
-    const wxresult = await axios.get(`https://avwxproxy.herokuapp.com/metar/${airport}`);
+    const wxresult = await axios.get(`https://avwx.fekke.com/metar/${airport}`);
     const jsonObj = wxresult.data;
     if (jsonObj.length > 0) {
         const metar = jsonObj[0];
