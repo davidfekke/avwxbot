@@ -141,11 +141,7 @@ function particleServiceTimer() {
     // if the time is after 10 PM and before 5 AM send the "alloff" event
     currentTime = new Date();
     console.log(currentTime.getHours());
-    if (currentTime.getHours() >= 3 || currentTime.getHours() < 8) {
-        sendAllOff();
-    } else {
-        sendCurrentWX();
-    }
+    sendCurrentWX();
 }
 
 function sendAllOff() {
