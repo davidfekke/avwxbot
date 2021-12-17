@@ -19,6 +19,7 @@ const lifrColor = [255,0,255];
 
 let currentColor = 'green';
 let flight_category = 'VFR';
+let currentTime = new Date();
 
 const particle = new Particle();
 
@@ -136,7 +137,28 @@ particle.getEventStream({ deviceId: device, auth: access_token}).then(function(s
 });
 
 function particleServiceTimer() {
-    sendCurrentWX();
+    // Do not send to particle service if between 10 PM and 5 AM
+    // if the time is after 10 PM and before 5 AM send the "alloff" event
+    currentTime = new Date();
+    console.log(currentTime.getHours());
+    if (currentTime.getHours() >= 22 || currentTime.getHours() < 5) {
+        sendAllOff();
+        
+    } else {
+        sendCurrentWX();
+    }
+}
+
+function sendAllOff() {
+    const publishEventPr = particle.publishEvent({ name: 'alloff', data: '', isPrivate: true, auth: access_token }); // isPrivate: true,
+    publishEventPr.then(
+        function(data) {
+            if (data.body.ok) { console.log("Event published succesfully") }
+        },
+        function(err) {
+            console.log("Failed to publish event: " + err)
+        }
+    );
 }
 
 async function sendCurrentWX() {
