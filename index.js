@@ -148,7 +148,7 @@ function sendAllOff() {
     const publishEventPr = particle.publishEvent({ name: 'alloff', data: '', isPrivate: true, auth: access_token }); // isPrivate: true,
     publishEventPr.then(
         function(data) {
-            if (data.body.ok) { console.log("Event published succesfully") }
+            if (data.body.ok) { console.log("Event published successfully") }
         },
         function(err) {
             console.log("Failed to publish event: " + err)
